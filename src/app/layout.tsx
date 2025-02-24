@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ClientOnly from "./ClientOnly";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased" suppressHydrationWarning>{children}</body>
+      <body className="antialiased">
+        <ClientOnly>{children}</ClientOnly>
+      </body>
     </html>
   );
 }
